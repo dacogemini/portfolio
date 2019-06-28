@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Dan Collins Portfolio">
+  <meta name="author" content="Dan Collins">
+
+  <title>Node Section</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="css\node.home.css" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/76275f6c00.js"></script>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Share+Tech+Mono" rel="stylesheet">
+  <link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/fantasque-sans-mono" type="text/css" />
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">Coding</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- ACCORDION -->
+  <!-- Header - set the background image for the header in the line below -->
+  <header class="bg-image-full-img">
+    <div class="img"></div>
+  </header>
+  <h3 style="padding: 20px;">NODE TERMS & CONCEPTS</h3>
+  <div class="accordion" id="accordionExample" style="width:60%; margin-left: 30px;">
+    <div class="card">
+      <div class="card-header" id="headingOne">
+        <h2 class="mb-0">
+          <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+            Blocking/Non-Blocking I/O
+          </button>
+        </h2>
+      </div>
+      <!-- First Article -->
+      <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+        <div class="card-body">
+          <p>Blocking is when the execution of additional JavaScript in the Node.js process must wait until a non-JavaScript operation
+            completes. This happens because the event loop is unable to continue running JavaScript while a blocking
+            operation is occurring.</p>
+            <p>A non-blocking operation does not wait for I/O to complete. While a blocking operation causes the process to be put on hold (hence the term 'blocking'), a non-blocking I/O process continues to run the operation. A non-blocking call initiates the operation, leaves it for the operating system to complete returning immediately to continue the next task. </p>
+          <li>Blocking methods execute <strong>synchronously</strong> and non-blocking methods execute <strong>asynchronously</strong></li>
+          <hr>
+          <i class="fas fa-laptop-code">&nbsp <strong>CODE EXAMPLES</strong></i>
+                  <br>
+                  <br>
+                      <strong>SYNCHRONOUS EXAMPLE:</strong>
+                      <br>
+                      <br>
+                  <p class="code" style="font-family: 'FantasqueSansMonoRegular';">
+                      const fs = require('fs');
+                      <br> 
+                      const data = fs.readFile<strong>Sync</strong>('/file.md');
+                      <span style="color: rgb(50, 156, 50)">// Blocks here until the whole file is read</span>
+                      <br>
+                      <br>
+                      <span style="color: rgb(50, 156, 50)">// Scheduled Timeout (100ms)</span>
+                      <br> const timeoutScheduled = Date.now();
+                      <br> setTimeout(() => {
+                      <br> &nbsp &nbsp const delay = Date.now() - timeoutScheduled;
+                      <br> console.log(`${delay}ms have passed since I was scheduled`);
+                      <br> }, 100);
+                      <br>
+                      <br>
+                  </p>
+                      <strong>SYNCHRONOUS EXAMPLE:</strong>
+                      <br>
+                      <br>
+
+                  <p class="code" style="font-family: 'FantasqueSansMonoRegular';">
+                      <span style="color: rgb(50, 156, 50)">// Blocking Code</span>
+                      <br>
+                      var contents = fs.readFileSync('/etc/hosts');
+                      <br>
+                      &nbsp &nbsp console.log(contents); <br>
+                      &nbsp &nbsp console.log('Doing something else');
+                      <br>
+                      <br>
+                      <span style="color: rgb(50, 156, 50)"> // Non-Blocking Code</span>
+                      <br>
+                      fs.readFile('/etc/hosts', <strong>function(err, contents)</strong> { <span style="color: rgb(50, 156, 50)"> << This is a Callback - when the file is loaded print contents</span>
+                      <br>
+                      console.log(contents);
+                      <br>
+                      });
+                      <br>
+                      console.log('Doing something else');
+                  </p>
+              </li>
+        </div>
+      </div>
+    </div>
+    <!-- Second Article -->
+    <div class="card">
+      <div class="card-header" id="headingTwo">
+        <h2 class="mb-0">
+          <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+            The Event Loop
+          </button>
+        </h2>
+      </div>
+      <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+        <div class="card-body">
+          <p>When Node.js starts, it initializes the
+            <strong>event loop</strong> (or implements the REPL --Read-Eval-Print-Loop) In this view, green circles represent
+            steps, or
+            <strong>phases</strong> which are internally executed using Node.js code, while blue circles represent application
+            code developed using the Node.js API (user code).
+            <p>The loop is entered when Node.js executes a JavaScript file and begins by checking for timeout events. If
+                there are any expired timeouts (i.e. a timer configured to fire at 200 ms is found and 200 ms or more
+                has expired since the timer started), the callbacks for these timeouts, represented by the blue circle,
+                are executed. This continues until all expired timeouts have been handled. After performing the task
+                Node begins processing the event loop.</p>
+                <p>
+                  <strong>REPL code:</strong> const repl = require('repl');</p>
+              <img src='https://dzone.com/storage/temp/7011039-event-loop.png'>
+                <!-- Content section -->
+                <section class="py-5">
+                  <div class="container">
+                      <ul>
+                          <li>
+                              <strong>UNICORN - </strong>
+                              The Unicorn function is responsible for handling the events that the OS kernel and thread pool have fired, as well as preparing
+                              near-term timeout events. In Node.js, a large portion of the IO tasks are performed through the OS
+                              kernel, such as reading and writing to sockets and handling network communications; when possible,
+                              Node.js will delegate to the functions and structures provided by the kernel and will check to see
+                              when these events have completed.
+                          </li>
+      
+      
+                      </ul>
+                  </div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header" id="headingThree">
+        <h2 class="mb-0">
+          <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+            Collapsible Group Item #3
+          </button>
+        </h2>
+      </div>
+      <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+        <div class="card-body">
+          Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+        </div>
+      </div>
+    </div>
+  </div>
+ 
+
+    <!-- Footer -->
+    <footer class="py-5 bg-dark">
+      <div class="container">
+        <p class="m-0 text-center text-white">Copyright &copy; Dan Collins 2020</p>
+      </div>
+      <!-- /.container -->
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

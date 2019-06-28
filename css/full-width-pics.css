@@ -1,0 +1,11 @@
+.bg-image-full {
+    background-color: #333333;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-top: 20px;
+    width: 100%;
+    height: 280px
+}
+.code {
+    line-height: 24px;
+}
