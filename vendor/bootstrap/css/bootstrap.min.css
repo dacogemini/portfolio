@@ -4147,6 +4147,8 @@ tbody.collapse.show {
 }
 
 .navbar {
+    font-family: 'Carrois Gothic SC', sans-serif;
+    font-size: 18px;
     position: relative;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -4178,11 +4180,12 @@ tbody.collapse.show {
 }
 
 .navbar-brand {
+    font-family: 'Carrois Gothic SC', sans-serif;
     display: inline-block;
     padding-top: .3125rem;
     padding-bottom: .3125rem;
-    margin-right: 1rem;
-    font-size: 1.25rem;
+    margin-left: -150px;
+    font-size: 1.5rem;
     line-height: inherit;
     white-space: nowrap
 }

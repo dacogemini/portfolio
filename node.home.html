@@ -14,7 +14,8 @@
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Custom styles for this template -->
-  <link href="css\node.home.css" rel="stylesheet">
+  <link href="css/node.home.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Carrois+Gothic+SC&display=swap" rel="stylesheet">
   <script src="https://kit.fontawesome.com/76275f6c00.js"></script>
 
   <!-- Google Fonts -->
@@ -25,202 +26,111 @@
 </head>
 
 <body>
-
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
-      <a class="navbar-brand" href="#">Coding</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive"
-        aria-expanded="false" aria-label="Toggle navigation">
+      <a class="navbar-brand" href="./index_01.html">home</a>&nbsp;<i class="fas fa-home fa-lg"
+        style="color: #7FBD00"></i>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+        aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="#">Home
-              <span class="sr-only">(current)</span>
-            </a>
+          <li class="nav-item">
+            <a class="nav-link" href="#">about</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">About</a>
+            <a class="nav-link" href="#">portfolio</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Services</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Contact</a>
+            <a class="nav-link" href="#">contact</a>
           </li>
         </ul>
       </div>
     </div>
   </nav>
-  <!-- ACCORDION -->
   <!-- Header - set the background image for the header in the line below -->
-  <header class="bg-image-full-img">
-    <div class="img"></div>
+  <hr>
+  <header class="py-5 bg-image-full"
+    style="background-image: url('https://lh3.googleusercontent.com/wkHZTv6BxKbcv1eXMITdKWHxNSa2FFl3a8LawbyLzbV8sHSMpLszf_mBI0BPXZOnX816yKRuVTuCc3Lm5gol-XKObHISRB0cRtF5aGjxGL-kagmyLiQL5QDx-UFCtSTZwQ0dqM7_3Q=w2400')">
   </header>
-  <h3 style="padding: 20px;">NODE TERMS & CONCEPTS</h3>
-  <div class="accordion" id="accordionExample" style="width:60%; margin-left: 30px;">
-    <div class="card">
-      <div class="card-header" id="headingOne">
-        <h2 class="mb-0">
-          <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-            Blocking/Non-Blocking I/O
-          </button>
-        </h2>
-      </div>
-      <!-- First Article -->
-      <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
-        <div class="card-body">
-          <p>Blocking is when the execution of additional JavaScript in the Node.js process must wait until a non-JavaScript operation
-            completes. This happens because the event loop is unable to continue running JavaScript while a blocking
-            operation is occurring.</p>
-            <p>A non-blocking operation does not wait for I/O to complete. While a blocking operation causes the process to be put on hold (hence the term 'blocking'), a non-blocking I/O process continues to run the operation. A non-blocking call initiates the operation, leaves it for the operating system to complete returning immediately to continue the next task. </p>
-          <li>Blocking methods execute <strong>synchronously</strong> and non-blocking methods execute <strong>asynchronously</strong></li>
-          <hr>
-          <i class="fas fa-laptop-code">&nbsp <strong>CODE EXAMPLES</strong></i>
-                  <br>
-                  <br>
-                      <strong>SYNCHRONOUS EXAMPLE:</strong>
-                      <br>
-                      <br>
-                  <p class="code" style="font-family: 'FantasqueSansMonoRegular';">
-                      const fs = require('fs');
-                      <br> 
-                      const data = fs.readFile<strong>Sync</strong>('/file.md');
-                      <span style="color: rgb(50, 156, 50)">// Blocks here until the whole file is read</span>
-                      <br>
-                      <br>
-                      <span style="color: rgb(50, 156, 50)">// Scheduled Timeout (100ms)</span>
-                      <br> const timeoutScheduled = Date.now();
-                      <br> setTimeout(() => {
-                      <br> &nbsp &nbsp const delay = Date.now() - timeoutScheduled;
-                      <br> console.log(`${delay}ms have passed since I was scheduled`);
-                      <br> }, 100);
-                      <br>
-                      <br>
-                  </p>
-                      <strong>SYNCHRONOUS EXAMPLE:</strong>
-                      <br>
-                      <br>
-
-                  <p class="code" style="font-family: 'FantasqueSansMonoRegular';">
-                      <span style="color: rgb(50, 156, 50)">// Blocking Code</span>
-                      <br>
-                      var contents = fs.readFileSync('/etc/hosts');
-                      <br>
-                      &nbsp &nbsp console.log(contents); <br>
-                      &nbsp &nbsp console.log('Doing something else');
-                      <br>
-                      <br>
-                      <span style="color: rgb(50, 156, 50)"> // Non-Blocking Code</span>
-                      <br>
-                      fs.readFile('/etc/hosts', <strong>function(err, contents)</strong> { <span style="color: rgb(50, 156, 50)"> << This is a Callback - when the file is loaded print contents</span>
-                      <br>
-                      console.log(contents);
-                      <br>
-                      });
-                      <br>
-                      console.log('Doing something else');
-                  </p>
-              </li>
-        </div>
-      </div>
-    </div>
-    <!-- Second Article -->
-    <div class="card">
-      <div class="card-header" id="headingTwo">
-        <h2 class="mb-0">
-          <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-            The Event Loop
-          </button>
-        </h2>
-      </div>
-      <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-        <div class="card-body">
-          <p>When Node.js starts, it initializes the
-            <strong>event loop</strong> (or implements the REPL --Read-Eval-Print-Loop) In this view, green circles represent
-            steps, or
-            <strong>phases</strong> which are internally executed using Node.js code, while blue circles represent application
-            code developed using the Node.js API (user code).
-            <p>The loop is entered when Node.js executes a JavaScript file and begins by checking for timeout events. If
-                there are any expired timeouts (i.e. a timer configured to fire at 200 ms is found and 200 ms or more
-                has expired since the timer started), the callbacks for these timeouts, represented by the blue circle,
-                are executed. This continues until all expired timeouts have been handled. After performing the task
-                Node begins processing the event loop.</p>
-                <p>
-                  <strong>REPL code:</strong> const repl = require('repl');</p>
-              <img src='https://dzone.com/storage/temp/7011039-event-loop.png'>
-                <!-- Content section -->
-                <section class="py-5">
-                  <div class="container">
-                      <ul>
-                          <li>
-                              <strong>UNICORN - </strong>
-                              The Unicorn function is responsible for handling the events that the OS kernel and thread pool have fired, as well as preparing
-                              near-term timeout events. In Node.js, a large portion of the IO tasks are performed through the OS
-                              kernel, such as reading and writing to sockets and handling network communications; when possible,
-                              Node.js will delegate to the functions and structures provided by the kernel and will check to see
-                              when these events have completed.
-                          </li>
-      
-      
-                      </ul>
-                  </div>
-        </div>
-      </div>
-    </div>
-    <div class="card">
-      <div class="card-header" id="headingThree">
-        <h2 class="mb-0">
-          <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-            Collapsible Group Item #3
-          </button>
-        </h2>
-      </div>
-      <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
-        <div class="card-body">
-          Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-        </div>
-      </div>
-    </div>
-  </div>
+  <br>
+  <hr>
+  <a style="padding: 10px;" href="./glossary.html">
+    <h4 style="font-family: 'Carrois Gothic SC', sans-serif; padding-left: 90px;">node glossary</h4>
+  </a>
+  <hr>
   <ul class="list-unstyled">
-    <li class="media">
-      <img src="..." class="mr-3" alt="...">
-      <div class="media-body">
-        <h5 class="mt-0 mb-1">List-based media object</h5>
-        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-      </div>
-    </li>
-    <li class="media my-4">
-      <img src="..." class="mr-3" alt="...">
-      <div class="media-body">
-        <h5 class="mt-0 mb-1">List-based media object</h5>
-        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-      </div>
-    </li>
-    <li class="media">
-      <img src="..." class="mr-3" alt="...">
-      <div class="media-body">
-        <h5 class="mt-0 mb-1">List-based media object</h5>
-        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-      </div>
-    </li>
-  </ul>
- 
+      <li class="media">
+        <img style="width: 100px; padding: 10px;" src="https://lh3.googleusercontent.com/v38Oj81rY4i_Kqclf7h28LBJTzRR-AgMRWKe3eUGXVy5UXEuiI0TwvWXrH3Eagjc49OOVbAGH2QFMP38oCXS6ca_ZAXoTxrU2tumQuJt1-xHEozz73lHVdEFCWahAYTHktvIJ7rx6Q=s225-p-k" class="mr-3" alt="timer">
+        <div class="media-body">
+          <h5 class="mt-0 mb-1">Events and Timers in Node.js</h5>
+          <br>
+          <p>Node.js has multiple utilities for handling events as well as scheduling the execution of code. These utilities give you the ability to reactively respond at the right time, for example:</p>
+        <ul>
+          <li>Clearing session data when a user logs out</li>
+          <li>Scheduling a timeout for receiving results from an API call and specifying the error handling code to run in case of timeout</li> 
+          <li>Closing database connections before exiting Node.js</li>
+        </ul>
+        <br>
+        <p><em>setInterval</em> works in a similar fasion:</p>
+        <code>// setInterval.js
+          <br>
+            // This function simulates us checking the length of a person waiting on hold.
+          <br>
+            let getQueueLength = function() {
+            <br>
+            &nbsp return Math.round(12 * Math.random());
+            <br>
+            };
+            <br>
+            setInterval(function() {
+            <br>  
+              &nbsp let queueLength = getQueueLength();
+              <br>
+              &nbsp console.log(`You are now ${queueLength} in line.`);
+              <br>
+              &nbsp &nbsp if (queueLength === 0) {
+              <br>
+              &nbsp &nbsp &nbsp console.log('You are next in line. Please standby.');
+              <br>
+              &nbsp &nbsp }
+              <br>
+              &nbsp &nbsp if (queueLength > 8) {
+              <br>
+              &nbsp &nbsp &nbsp return console.log('This is beginning to look impossible!');
+              <br>
+              &nbsp &nbsp }
+              <br>
+            }, 3000);</code>
+        </div>
+      </li>
+      <li class="media my-4">
+        <img src="..." class="mr-3" alt="...">
+        <div class="media-body">
+          <h5 class="mt-0 mb-1">List-based media object</h5>
+          Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+        </div>
+      </li>
+      <li class="media">
+        <img src="..." class="mr-3" alt="...">
+        <div class="media-body">
+          <h5 class="mt-0 mb-1">List-based media object</h5>
+          Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+        </div>
+      </li>
+    </ul>
+  <!-- Footer -->
+  <footer class="py-5 bg-dark">
+    <div class="container">
+      <p class="m-0 text-center text-white">Copyright &copy; Dan Collins 2020</p>
+    </div>
+  </footer>
 
-    <!-- Footer -->
-    <footer class="py-5 bg-dark">
-      <div class="container">
-        <p class="m-0 text-center text-white">Copyright &copy; Dan Collins 2020</p>
-      </div>
-      <!-- /.container -->
-    </footer>
-
-    <!-- Bootstrap core JavaScript -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

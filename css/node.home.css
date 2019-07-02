@@ -1,18 +1,19 @@
 .bg-image-full {
     background-color: #333333;
-    background-size: contain;
+    background-size: cover;
     background-repeat: no-repeat;
-    margin-top: 20px;
-    width: 100%;
-    height: 200px
+    margin-left: 3rem;
+    margin-top: 40px;
+    width: 300px;
+    height: auto;
 }
 .bg-image-full-img {
     background-color: #333333;
-    background-size: contain;
+    background-size: cover;
     background-repeat: no-repeat;
     margin-top: 54px !important;
     padding-top: 30px !important;
-    padding-bottom: 0px !important;
+    padding-bottom: 10px !important;
     width: 100%;
     height: 235px
 }
@@ -22,6 +23,9 @@
     background-repeat: no-repeat;
     width: 100%;
     height: 200px
+}
+.list-unstyled {
+    margin-left: 80px;
 }
 .code {
     line-height: 24px;
